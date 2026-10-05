@@ -13,7 +13,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $items=Item::orderBy('id','DESC')->paginate(15);
+        $items=Item::with ('category')->orderBy('id','DESC')->paginate(15);
         return view('admin.items.index',compact('items'));
 
     }
@@ -23,7 +23,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.items.create');
     }
 
     /**
